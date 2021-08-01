@@ -32,6 +32,7 @@ import * as express from "express";
 import { HEADER_RID, HEADER_FDI } from "./constants";
 import NormalisedURLDomain from "./normalisedURLDomain";
 import NormalisedURLPath from "./normalisedURLPath";
+import { UserDeleter } from "./core/userDeleter";
 
 export default class SuperTokens {
     private static instance: SuperTokens | undefined;
@@ -291,5 +292,11 @@ export default class SuperTokens {
             users: response.users,
             nextPaginationToken: response.nextPaginationToken,
         };
+    };
+
+    deleteUser = async (userId: string) => {
+        const deleter = await UserDeleter.create(Querier.getNewInstanceOrThrowError(this.isInServerlessEnv, undefined));
+
+        await deleter.deleteUser(userId);
     };
 }

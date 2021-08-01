@@ -35,11 +35,13 @@ export default class SuperTokensWrapper {
         }[];
         nextPaginationToken?: string;
     }>;
+    static deleteUser(userId: string): Promise<void>;
 }
 export declare let init: typeof SuperTokens.init;
 export declare let middleware: typeof SuperTokensWrapper.middleware;
 export declare let errorHandler: typeof SuperTokensWrapper.errorHandler;
 export declare let getAllCORSHeaders: typeof SuperTokensWrapper.getAllCORSHeaders;
+export declare let deleteUser: typeof SuperTokensWrapper.deleteUser;
 export declare let getUserCount: typeof SuperTokensWrapper.getUserCount;
 export declare let getUsersOldestFirst: typeof SuperTokensWrapper.getUsersOldestFirst;
 export declare let getUsersNewestFirst: typeof SuperTokensWrapper.getUsersNewestFirst;

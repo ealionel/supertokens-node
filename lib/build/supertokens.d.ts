@@ -46,4 +46,5 @@ export default class SuperTokens {
         }[];
         nextPaginationToken?: string | undefined;
     }>;
+    deleteUser: (userId: string) => Promise<void>;
 }
